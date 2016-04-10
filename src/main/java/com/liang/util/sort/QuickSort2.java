@@ -77,7 +77,8 @@ public class QuickSort2 {
 	 * @return
 	 */
 	private static int calculPivot(int nums[], int low, int high) {
-		int mid = low + (high - low) / 2;// 计算数组中间元素下标
+//		int mid = low + (high - low) / 2;// 计算数组中间元素下标
+		int mid = (low + high) / 2; // 计算数组中间元素下标
 		// 使high的元素最大，low的元素居中，mid的元素最小
 		if (nums[low] > nums[high]) {
 			swap(nums, low, high);

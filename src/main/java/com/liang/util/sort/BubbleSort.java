@@ -2,7 +2,7 @@ package com.liang.util.sort;
 
 
 /**
- * @Description 冒泡排序
+ * @Description 冒泡排序 : 通过相邻两个元素两两比较，逐步交换使当前未排序的最大或最小的元素上升到指定位置
  * @Date 2016年3月13日 下午11:04:09
  */
 public class BubbleSort {

@@ -2,6 +2,10 @@ package com.liang.util.sort;
 
 /**
  * @Description 归并排序
+ * 
+ *              快排的递归实现可以记为如果low < high则进行一次划分，然后递归划分左序列、右序列
+ * 
+ *              归并的递归实现可以记为如果low != high则求出中间位置，对左序列进行拆分，对右序列进行拆分，然后归并左右序列
  * @Date 2016年3月18日 下午9:53:14
  */
 public class MergeSort {
@@ -87,7 +91,7 @@ public class MergeSort {
 					// 划分子序列的边界
 					rMin = lMax = lMin + step;
 					rMax = rMin + step;
-					// 防止右序列右边界越界
+					// 防止右序列右边界越界,注意rMax指向的是最右边元素的下一个，因此这里可以是data.length
 					if (rMax > data.length) {
 						rMax = data.length;
 					}

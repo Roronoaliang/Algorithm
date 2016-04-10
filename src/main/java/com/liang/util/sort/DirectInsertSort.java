@@ -1,7 +1,7 @@
 package com.liang.util.sort;
 
 /**
- * @Description 直接插入排序
+ * @Description 直接插入排序： 通过在已有序的序列中找到当前未排序元素应该插入的位置，插入
  * @Date 2016年3月14日 上午9:09:51
  */
 public class DirectInsertSort {

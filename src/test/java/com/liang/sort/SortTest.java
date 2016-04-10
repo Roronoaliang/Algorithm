@@ -85,4 +85,5 @@ public class SortTest {
 		QuickSort2.sort(nums[9]);
 		RandAndPrintUtil.print("quickSort2", nums[9]);
 	}
+	
 }
