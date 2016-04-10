@@ -3,12 +3,12 @@ package com.liang.datastructure.binarytree;
 import java.util.Stack;
 
 /**
- * @Description 二叉树定义,结点采用孩子表示法
+ * @Description 二叉树定义,结点采用孩子表示法(二叉链表表示)
  * 
  * @Date 2016年4月8日 下午9:26:32
  */
 
-public abstract class BinaryTree<T extends Comparable<T>> {
+public abstract class BinaryTree<T> {
 
 	private BinaryNode<T> root; // 根结点
 	private int count; // 结点个数
@@ -17,26 +17,32 @@ public abstract class BinaryTree<T extends Comparable<T>> {
 	 * @Description 结点结构定义
 	 * @Date 2016年4月10日 上午12:37:29
 	 */
-	@SuppressWarnings("hiding")
-	class BinaryNode<T extends Comparable<T>> {
-		T data; // 数据域,使用泛型以支持多种类型
-		BinaryNode<T> leftChild; // 左孩子
-		BinaryNode<T> rightChild; // 右孩子
+	static class BinaryNode<E> {
+		E data; // 数据域,使用泛型以支持多种类型
+		BinaryNode<E> leftChild; // 左孩子
+		BinaryNode<E> rightChild; // 右孩子
 
 		// BinaryNode<T> parent; // 双亲结点
 
-		public BinaryNode(T data, BinaryNode<T> lChild, BinaryNode<T> rChild) {
+		public BinaryNode(E data, BinaryNode<E> lChild, BinaryNode<E> rChild) {
 			this.data = data;
 			this.leftChild = lChild;
 			this.rightChild = rChild;
 			// this.parent = parent;
 		}
+
+		@Override
+		public String toString() {
+			return "BinaryNode [data=" + data + ", leftChild=" + leftChild
+					+ ", rightChild=" + rightChild + "]";
+		}
+		
 	}
 
 	/**
 	 * 创建一棵二叉树
 	 */
-	public abstract void initBinaryTree();
+	protected abstract void initBinaryTree();
 
 	/**
 	 * 递归前序遍历
@@ -91,7 +97,7 @@ public abstract class BinaryTree<T extends Comparable<T>> {
 	 * @param binaryNode
 	 */
 	public void preOrderWithStack(BinaryNode<T> binaryNode) {
-		Stack<BinaryNode<T>> stack = new Stack<BinaryTree<T>.BinaryNode<T>>();
+		Stack<BinaryNode<T>> stack = new Stack<BinaryTree.BinaryNode<T>>();
 		while (binaryNode != null || !stack.isEmpty()) { // 当前结点或栈中尚有结点，说明还没遍历完所有结点
 			// 访问所有左结点,并压入栈中
 			while (binaryNode != null) {
@@ -114,7 +120,7 @@ public abstract class BinaryTree<T extends Comparable<T>> {
 	 * @param binaryNode
 	 */
 	public void midOrderWithStack(BinaryNode<T> binaryNode) {
-		Stack<BinaryNode<T>> stack = new Stack<BinaryTree<T>.BinaryNode<T>>();
+		Stack<BinaryNode<T>> stack = new Stack<BinaryTree.BinaryNode<T>>();
 		while (binaryNode != null || !stack.empty()) {
 			// 压入当前结点的所有左结点,压入前不访问
 			while (binaryNode != null) {

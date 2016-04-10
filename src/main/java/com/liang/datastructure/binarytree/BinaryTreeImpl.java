@@ -12,7 +12,8 @@ public class BinaryTreeImpl extends BinaryTree<Integer> {
 	/**
 	 * 创建二叉树
 	 */
-	public void initBinaryTree() {
+	@Override
+	protected void initBinaryTree() {
 		BinaryNode<Integer> root = new BinaryNode<Integer>(0, null, null);
 		Scanner sc = new Scanner(System.in);
 		this.setRoot(root);
