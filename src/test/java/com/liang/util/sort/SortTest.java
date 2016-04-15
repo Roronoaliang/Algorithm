@@ -1,4 +1,4 @@
-package com.liang.sort;
+package com.liang.util.sort;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

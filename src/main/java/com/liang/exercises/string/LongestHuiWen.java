@@ -1,4 +1,4 @@
-package com.liang.exercises.mathematics;
+package com.liang.exercises.string;
 
 /**
  * @Description 最长回文子串
