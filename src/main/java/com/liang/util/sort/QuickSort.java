@@ -18,9 +18,8 @@ public class QuickSort {
 	 * @param high
 	 */
 	private static void quickSort(int nums[], int low, int high) {
-		int pivotkey;
 		if (low < high) { // 注意这里是if，不是while
-			pivotkey = partition(nums, low, high); // 将序列划分为两部分
+			int pivotkey = partition(nums, low, high); // 将序列划分为两部分
 			quickSort(nums, low, pivotkey - 1);// 递归调用划分左序列
 			quickSort(nums, pivotkey + 1, high);// 递归调用划分右序列
 		}

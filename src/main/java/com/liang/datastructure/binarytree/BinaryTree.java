@@ -36,7 +36,7 @@ public abstract class BinaryTree<T> {
 			return "BinaryNode [data=" + data + ", leftChild=" + leftChild
 					+ ", rightChild=" + rightChild + "]";
 		}
-		
+
 	}
 
 	/**
@@ -86,8 +86,7 @@ public abstract class BinaryTree<T> {
 		} else {
 			postOrder(binaryNode.leftChild); // 递归后序遍历左子树
 			postOrder(binaryNode.rightChild); // 递归后序遍历右子树
-			visit(binaryNode);
-			; // 访问结点
+			visit(binaryNode);// 访问结点
 		}
 	}
 
@@ -140,11 +139,16 @@ public abstract class BinaryTree<T> {
 	 * 利用栈非递归后序遍历二叉树： 1.压入根结点的所有左子孙
 	 * 2.检查栈顶结点有无未访问过的右孩子，有则将指针移向右孩子上，没有则取出栈顶结点进行访问——>标记为刚访问——>置当前结点指针指向为Null
 	 * 
-	 * @param binaryNode
+	 * @param binaryNode 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
 	 */
 	public void postOrderWithStack(BinaryNode<T> binaryNode) {
 		Stack<BinaryNode<T>> stack = new Stack<BinaryNode<T>>();
-		BinaryNode<T> pre = binaryNode; // 用于刚记录访问过的结点
+		BinaryNode<T> pre = null; // 用于刚记录访问过的结点
 		while (binaryNode != null || !stack.empty()) {
 			// 压入当前结点的所有左孩子
 			while (binaryNode != null) {
@@ -156,7 +160,7 @@ public abstract class BinaryTree<T> {
 			 * 判断栈顶的结点是否有右孩子并且尚未访问过（此时不弹出栈）,如果有则将当前结点指针指向改为右孩子,否则弹出栈顶结点进行访问,
 			 * 并标记为刚刚访问过的结点
 			 */
-			if (!stack.empty()) {
+			if (!stack.empty()) {                                                                                                                          
 				BinaryNode<T> right = stack.peek().rightChild;
 				if (right == null || right == pre) {
 					binaryNode = stack.pop();

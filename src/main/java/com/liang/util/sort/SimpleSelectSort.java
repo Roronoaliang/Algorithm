@@ -1,5 +1,6 @@
 package com.liang.util.sort;
 
+
 /**
  * @Description 简单选择排序
  * @Date 2016年3月14日 上午8:56:51
@@ -8,22 +9,28 @@ public class SimpleSelectSort {
 
 	/**
 	 * 时间复杂度：O（n²）, 交换次数少，略优于冒泡
+	 * 
 	 * @param nums
 	 * @return
 	 */
-	public static void sort(int data[]) {
-		int i, j, k, min;
-		for(i = 0; i < data.length-1; i++) {
-			min = i;
-			for(j = i+1; j < data.length; j++) { //找出本趟排序最小的元素，标记出下标
-				if(data[min] > data[j]) {
+	public static void sort(int arr[]) {
+		for (int i = 0; i < arr.length; i++) {
+			int min = i;
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[j] < arr[min]) {
 					min = j;
 				}
 			}
-			//与第i个元素交换位置
-			k = data[min];
-			data[min] = data[i];
-			data[i] = k;
+			if (min != i) {
+				swap(arr, min, i);
+			}
 		}
 	}
+
+	private static void swap(int arr[], int a, int b) {
+		int temp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = temp;
+	}
+	
 }

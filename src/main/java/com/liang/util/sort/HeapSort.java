@@ -1,6 +1,5 @@
 package com.liang.util.sort;
 
-import com.liang.util.RandAndPrintUtil;
 
 /**
  * 堆是一棵有特殊要求的完全二叉树，要么每个结点的值都大于或等于左右孩子结点的值（大顶堆），要么每个结点的值都小于或等于左右孩子结点的值（小顶堆）。
@@ -111,8 +110,7 @@ public class HeapSort {
 	 */
 	private static void adjustHeap0(int nums[], int index, int lastIndex) {
 		int temp = nums[index];
-		int i;
-		for (i = 2 * index + 1; i <= lastIndex; i = i * 2 + 1) { // 注意此处左孩子下标为2*i+1
+		for (int i = 2 * index + 1; i <= lastIndex; i = i * 2 + 1) { // 注意此处左孩子下标为2*i+1
 			if (i < lastIndex && nums[i] < nums[i + 1]) { // i<length-1防止i+1越界
 				i++; // 用i标识较大的孩子结点
 			}
@@ -123,11 +121,5 @@ public class HeapSort {
 		}
 		nums[index] = temp;
 	}
-
 	
-	public static void main(String[] args) {
-		int nums[] = {1,2,3};
-		sort(nums, true);
-		RandAndPrintUtil.print("", nums);
-	}
 }

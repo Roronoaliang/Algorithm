@@ -41,12 +41,12 @@ public class SortTest {
 	@Test
 	public void simpleSelectTest() {
 		SimpleSelectSort.sort(nums[2]);
-		RandAndPrintUtil.print("simpleSelect", nums[1]);
+		RandAndPrintUtil.print("simpleSelect", nums[2]);
 	}
 
 	@Test
 	public void directInsertTest() {
-		DirectInsertSort.sort(nums[3]);
+		DirectInsertSort.sortAsc(nums[3]);
 		RandAndPrintUtil.print("directInsert", nums[3]);
 	}
 

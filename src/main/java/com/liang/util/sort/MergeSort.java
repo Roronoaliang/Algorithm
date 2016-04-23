@@ -80,42 +80,36 @@ public class MergeSort {
 	 * 
 	 * @param data
 	 */
-	public static void mergeWithIteration(int[] data) {
+	public static void mergeWithIteration(int[] arr) {
 		// 声明临时数组和四个变量指示左右子序列的边界
-		int temp[] = new int[data.length];
+		int[] temp = new int[arr.length];
 		int lMin, lMax, rMin, rMax;
-		int step;
-		for (step = 1; step < data.length; step *= 2) {// 外层循环依次扩大步长：1、2、4、8...直到大于等于数组长度
-			{
-				for (lMin = 0; lMin < data.length - step; lMin = rMax) { // 在每趟归并过程中从0号元素开始根据当前的步长依次划分两个子序列，并进行归并
-					// 划分子序列的边界
-					rMin = lMax = lMin + step;
-					rMax = rMin + step;
-					// 防止右序列右边界越界,注意rMax指向的是最右边元素的下一个，因此这里可以是data.length
-					if (rMax > data.length) {
-						rMax = data.length;
+		for (int step = 1; step < arr.length; step *= 2) {// 外层循环依次扩大步长：1、2、4、8...直到大于等于数组长度
+			for (lMin = 0; lMin + step < arr.length; lMin = rMax) { // 在每趟归并过程中从0号元素开始根据当前的步长依次划分两个子序列，并进行归并
+				// 划分子序列的边界
+				lMax = rMin = lMin + step;
+				rMax = rMin + step;
+				if (rMax > arr.length) {// 防止右序列右边界越界,注意rMax指向的是最右边元素的下一个，因此是data.length
+					rMax = arr.length;
+				}
+				// 归并两个有序序列
+				int k = 0;
+				while (lMin < lMax && rMin < rMax) {
+					if (arr[lMin] <= arr[rMin]) {
+						temp[k++] = arr[lMin++];
+					} else {
+						temp[k++] = arr[rMin++];
 					}
-					// 归并两个有序序列
-					int index = 0;
-					while (lMin < lMax && rMin < rMax) {
-						if (data[lMin] < data[rMin]) {
-							temp[index++] = data[lMin++];
-						} else {
-							temp[index++] = data[rMin++];
-						}
-					}
-					// 如果左边还有没遍历到的说明左边剩下的都是比temp数组中的数要大，则在原始数组中按原来的顺序复制到右边子序列中(如果右边还有没遍历到的说明都是比temp数组中的数要大的，但是只要待在原位就行了，不需要移动)
-					while (lMin < lMax) {
-						data[--rMin] = data[--lMax];
-					}
-					// 把temp数组中的数据复制回原始数组中
-					while (index > 0) {
-						data[--rMin] = temp[--index];
-					}
+				}
+				// 如果左边还有没遍历到的说明左边剩下的都是比temp数组中的数要大，则在原始数组中按原来的顺序复制到右边子序列中(如果右边还有没遍历到的说明都是比temp数组中的数要大的，但是只要待在原位就行了，不需要移动)
+				while (lMin < lMax) {
+					arr[--rMin] = arr[--lMax];
+				}
+				// 把temp数组中的数据复制回原始数组中
+				while (k > 0) {
+					arr[--rMin] = temp[--k];
 				}
 			}
 		}
-
 	}
-
 }
