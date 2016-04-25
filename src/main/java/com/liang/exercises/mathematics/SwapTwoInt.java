@@ -15,7 +15,7 @@ public class SwapTwoInt {
 	 * @param a
 	 * @param b
 	 */
-	public static void swapWithTemp(int arr[], int a, int b) {
+	public static void swapWithTemp(Integer arr[], int a, int b) {
 		int temp = arr[a];
 		arr[a] = arr[b];
 		arr[b] = temp;
@@ -28,7 +28,7 @@ public class SwapTwoInt {
 	 * @param a
 	 * @param b
 	 */
-	public static void swapWithAddition(int arr[], int a, int b) {
+	public static void swapWithAddition(Integer arr[], int a, int b) {
 		arr[a] = arr[a] + arr[b];
 		arr[b] = arr[a] - arr[b];
 		arr[a] = arr[a] - arr[b];
@@ -47,7 +47,7 @@ public class SwapTwoInt {
 	 * @param a
 	 * @param b
 	 */
-	public static void swapWithXOR(int arr[], int a, int b) {
+	public static void swapWithXOR(Integer arr[], int a, int b) {
 		if(a == b) {
 			System.out.println("指向同一个数不能进行异或运算来交换");
 			return;
@@ -64,7 +64,7 @@ public class SwapTwoInt {
 	 * @param a
 	 * @param b
 	 */
-	public static void swapWithMulti(int arr[], int a, int b) {
+	public static void swapWithMulti(Integer arr[], int a, int b) {
 		if (arr[a] == 0 || arr[b] == 0) {
 			System.out.println("交换数中包含0无法交换");
 			return;
@@ -79,8 +79,8 @@ public class SwapTwoInt {
 	}
 
 	public static void main(String[] args) {
-		 int arr[] = RandAndPrintUtil.randomNumber(2);
-//		int arr[] = { 2147483647, -2147483647 };
+		 Integer arr[] = RandAndPrintUtil.randomNumber(2);
+//		Integer arr[] = { 2147483647, -2147483647 };
 		RandAndPrintUtil.print("initial data", arr);
 		swapWithTemp(arr, 0, 1);
 		RandAndPrintUtil.print("swapWithTemp", arr);

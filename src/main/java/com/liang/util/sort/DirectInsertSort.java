@@ -12,7 +12,7 @@ public class DirectInsertSort {
 	 * @param nums
 	 * @return
 	 */
-	public static void sortAsc(int nums[]) {
+	public static void sortAsc(Integer nums[]) {
 		int i, j, k;
 		for (i = 1; i < nums.length; i++) { // 外层循环遍历无序集合，将第一个元素视为有序集合故无序集合从下标1开始
 			k = nums[i]; // 记录待排序元素防止被移位操作覆盖掉
@@ -24,7 +24,7 @@ public class DirectInsertSort {
 		}
 	}
 
-	public static void sortDesc(int arr[]) {
+	public static void sortDesc(Integer arr[]) {
 		int i, j, k;
 		for (i = 1; i < arr.length; i++) {
 			k = arr[i];

@@ -19,11 +19,11 @@ public class DeleteNodeO1 {
 		}
 		// 将指定结点后面的结点值依次前移一位，即执行覆盖操作,但要注意要将最后一个结点置为null
 		while (node.next != null) {
-			ListNode pre = node; // 指示当前需要被覆盖的结点
+			ListNode cru = node; // 指示当前需要被覆盖的结点
 			node.val = node.next.val; // 覆盖操作
 			node = node.next; // 移动指针指示下一个被覆盖的结点
 			if (node.next == null) { // 如果已经移动到最后一个结点，则从链表中将该结点置为null并退出循环
-				pre.next = null;
+				cru.next = null;
 				break;
 			}
 		}

@@ -17,6 +17,12 @@ import java.util.List;
 
 public class FindKthToTail {
 
+	/**
+	 * 思路1，需要遍历两次
+	 * @param head
+	 * @param k
+	 * @return
+	 */
 	public ListNode sulution1(ListNode head, int k) {
 		List<ListNode> list = new ArrayList<ListNode>();
 		int count = 0;
@@ -33,32 +39,33 @@ public class FindKthToTail {
 		return list.get(count - k);
 	}
 	
+	/**
+	 * 思路2，只遍历一次
+	 * @param head
+	 * @param k
+	 * @return
+	 */
 	public ListNode solution2(ListNode head, int k) {
-		ListNode front = head, behind = head;
+		ListNode fast = head, slow = head;
 		//前面的指针先走k-1步
 		for(int i = 0; i < k; i++) {
-			if(front == null) {
+			if(fast == null) {
 				return null;
 			}
-			front = front.next;
+			fast = fast.next;
 		}
 		//前面与后面的指针同时走直到前面的指针走到末尾
-		while(front != null) {
-			front = front.next;
-			behind = behind.next;
+		while(fast != null) {
+			fast = fast.next;
+			slow = slow.next;
 		}
-		return behind;
+		return slow;
 	}
 
 	public static void main(String[] args) {
-		ListNode node = new ListNode(0);
-		ListNode head = node;
-		for (int i = 0; i < 10; i++) {
-			node.next = new ListNode(i * 2 + 1);
-			node = node.next;
-		}
+		ListNode head = ListUtil.create(20);
 		FindKthToTail fktt = new FindKthToTail();
-		ListNode no = fktt.sulution1(head, 1);
+		ListNode no = fktt.sulution1(head, 10);
 		System.out.println(no.val);
 	}
 }

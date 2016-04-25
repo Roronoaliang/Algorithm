@@ -17,7 +17,7 @@ import com.liang.util.sort.QuickSort2;
 public class MoreThanHalf {
 
 	// 打擂台方式
-	public int solution1(int[] array) {
+	public int solution1(Integer[] array) {
 		// 容错判断
 		if (array == null || array.length == 0) {
 			return Integer.MIN_VALUE; // 没有满足条件的数返回整型的最小值
@@ -59,7 +59,7 @@ public class MoreThanHalf {
 		return target;
 	}
 
-	public int solution2(int arr[]) {
+	public int solution2(Integer arr[]) {
 		QuickSort2.sort(arr); // 排序
 		int mid = arr.length / 2;
 		int count = 1;

@@ -13,7 +13,7 @@ public class MergeSort {
 	/**
 	 * 递归实现归并排序
 	 */
-	public static void sortWithRecursion(int nums[]) {
+	public static void sortWithRecursion(Integer nums[]) {
 		mergeSort(nums, 0, nums.length - 1);
 	}
 
@@ -26,7 +26,7 @@ public class MergeSort {
 	 * @param lastIndex
 	 *            最末下标
 	 */
-	private static void mergeSort(int nums[], int firstIndex, int lastIndex) {
+	private static void mergeSort(Integer nums[], int firstIndex, int lastIndex) {
 		if (firstIndex == lastIndex) {
 			return;
 		}
@@ -44,7 +44,7 @@ public class MergeSort {
 	 * @param midIndex
 	 * @param lastIndex
 	 */
-	private static void merge(int nums[], int firstIndex, int midIndex,
+	private static void merge(Integer nums[], int firstIndex, int midIndex,
 			int lastIndex) {
 		int lSize = midIndex + 1 - firstIndex;
 		int rSize = lastIndex - midIndex;
@@ -80,7 +80,7 @@ public class MergeSort {
 	 * 
 	 * @param data
 	 */
-	public static void mergeWithIteration(int[] arr) {
+	public static void mergeWithIteration(Integer[] arr) {
 		// 声明临时数组和四个变量指示左右子序列的边界
 		int[] temp = new int[arr.length];
 		int lMin, lMax, rMin, rMax;

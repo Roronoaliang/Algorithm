@@ -21,7 +21,7 @@ public class HeapSort {
 	 *            true表示第0个位置存储真实数据，否则从1开始
 	 * @return
 	 */
-	public static void sort(int nums[], boolean isStart0) {
+	public static void sort(Integer nums[], boolean isStart0) {
 		if (isStart0) {
 			start0(nums);
 		} else {
@@ -35,7 +35,7 @@ public class HeapSort {
 	 * @param nums
 	 * @return
 	 */
-	private static void start1(int[] data) {
+	private static void start1(Integer[] data) {
 		int i;
 		// 初始化构造堆
 		for (i = data.length / 2; i > 0; i--) {
@@ -59,7 +59,7 @@ public class HeapSort {
 	 * @param length
 	 *            待调整序列元素个数
 	 */
-	private static void heapAdjust1(int nums[], int index, int lastIndex) {
+	private static void heapAdjust1(Integer nums[], int index, int lastIndex) {
 		int temp = nums[index];
 		int j;
 		for (j = index * 2; j <= lastIndex; j *= 2) {
@@ -81,7 +81,7 @@ public class HeapSort {
 	 *            待排序序列,下标为0的数组元素存储真实数据，则结点n的左右孩子分别为（2n+1）、（2n+2）,父结点为(n- 1)/2
 	 * @return 已按从小到大排序的数组
 	 */
-	private static void start0(int data[]) {
+	private static void start0(Integer data[]) {
 		int i;
 		// 从编号为(n-1)/2的结点开始,自下而上的调整，初始化构成一个大顶堆
 		for (i = (data.length - 1) / 2; i >= 0; i--) {
@@ -108,7 +108,7 @@ public class HeapSort {
 	 * @param length
 	 *            堆结点个数
 	 */
-	private static void adjustHeap0(int nums[], int index, int lastIndex) {
+	private static void adjustHeap0(Integer nums[], int index, int lastIndex) {
 		int temp = nums[index];
 		for (int i = 2 * index + 1; i <= lastIndex; i = i * 2 + 1) { // 注意此处左孩子下标为2*i+1
 			if (i < lastIndex && nums[i] < nums[i + 1]) { // i<length-1防止i+1越界

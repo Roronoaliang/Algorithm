@@ -26,12 +26,18 @@ package com.liang.exercises.linkedlist;
  */
 public class LoopsOfLinkedList {
 
-	public static boolean hasLoop(ListNode head) {
+	/**
+	 * 判断是否有环
+	 * 
+	 * @param head
+	 * @return
+	 */
+	public boolean hasLoop(ListNode head) {
 		ListNode fast = head, slow = head;
 		if (head == null) {
 			return false;
 		}
-		if (head.next == head) {
+		if (head.next == head) { // 单个结点并且构成环
 			return true;
 		}
 		while (fast != null && fast.next != null) {
@@ -43,5 +49,49 @@ public class LoopsOfLinkedList {
 		}
 		return false;
 	}
-	
+
+	/**
+	 * 获取链表环入口结点，若链表无环返回null
+	 * 
+	 * @param head
+	 * @return
+	 */
+	public ListNode getEntrance(ListNode head) {
+		ListNode fast = head, slow = head;
+		if (head == null || head.next == head) {
+			return head;
+		}
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			if (slow == fast) {
+				fast = head; // fast指针回到第一个结点处
+				while (slow != fast) {
+					fast = fast.next;
+					slow = slow.next;
+				}
+				return slow;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * 采用删除结点的方式查询环入口结点，
+	 * @param head
+	 * @return
+	 */
+	public ListNode entryNodeOfLoop(ListNode head) {
+		if (!hasLoop(head)) {
+			return null;
+		}
+		// 采用结点脱离链表的方式
+		ListNode p = head, q = head.next;
+		while (q != null) {
+			p.next = null;
+			p = q;
+			q = q.next;
+		}
+		return p;
+	}
 }

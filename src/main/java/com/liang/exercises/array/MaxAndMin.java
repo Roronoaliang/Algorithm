@@ -8,7 +8,7 @@ package com.liang.exercises.array;
  */
 public class MaxAndMin {
 
-	public void solution1(int arr[]) {
+	public void solution1(Integer arr[]) {
 		if (arr == null || arr.length == 0) {
 			System.out.println("数组为空,没有最大最小值");
 			return;
@@ -25,8 +25,8 @@ public class MaxAndMin {
 		System.out.println("最大值: " + max + " ,最小值: " + min);
 	}
 
-	public void solution2(int arr[]) {
-		int result[] = getMaxAndMin(arr, 0, arr.length - 1);
+	public void solution2(Integer arr[]) {
+		Integer result[] = getMaxAndMin(arr, 0, arr.length - 1);
 		System.out.println("最大值: " + result[0] + " ,最小值: " + result[1]);
 	}
 
@@ -40,8 +40,8 @@ public class MaxAndMin {
 	 *            上一步划份得到的最大最小值
 	 * @return
 	 */
-	private int[] getMaxAndMin(int arr[], int low, int high) {
-		int[] result = new int[2];
+	private Integer[] getMaxAndMin(Integer arr[], int low, int high) {
+		Integer[] result = new Integer[2];
 		// 只剩一个元素
 		if (low == high) {
 			result[0] = arr[low];
@@ -61,8 +61,8 @@ public class MaxAndMin {
 		}
 		// 多于两个元素，划分成更小的元素
 		int mid = (low + high) / 2; // 计算中间下标
-		int[] leftResult = getMaxAndMin(arr, low, mid); // 计算左部分最大最小值
-		int[] rightResult = getMaxAndMin(arr, mid + 1, high); // 计算右部分最大最小值
+		Integer[] leftResult = getMaxAndMin(arr, low, mid); // 计算左部分最大最小值
+		Integer[] rightResult = getMaxAndMin(arr, mid + 1, high); // 计算右部分最大最小值
 		//计算总的最大值、总的最小值
 		if(leftResult[0] < rightResult[0]) {
 			result[0] = rightResult[0];

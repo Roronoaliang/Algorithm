@@ -13,8 +13,8 @@ public class TopK {
 	 * 然后遍历剩余的N-K个数，如果比根结点还大则与根结点交换，重新调整成小顶堆
 	 */
 
-	public static int[] topK(int data[], int k) {
-		int top[] = new int[k];
+	public static Integer[] topK(Integer data[], int k) {
+		Integer top[] = new Integer[k];
 		for (int i = 0; i < k; i++) {
 			top[i] = data[i];
 		}
@@ -39,7 +39,7 @@ public class TopK {
 	 * @param node 当前结点下标
 	 * @param lastIndex 待调整序列的最后一个下标
 	 */
-	private static void adjustHeap(int data[], int node, int lastIndex) {
+	private static void adjustHeap(Integer data[], int node, int lastIndex) {
 		int i;
 		int temp = data[node];
 		for (i = node * 2 + 1; i <= lastIndex; i = i * 2 + 1) {
@@ -55,7 +55,7 @@ public class TopK {
 	}
 
 	public static void main(String[] args) {
-		int data[] = RandAndPrintUtil.randomNumber(10000);
+		Integer data[] = RandAndPrintUtil.randomNumber(10000);
 		HeapSort.sort(data, true);
 		RandAndPrintUtil.print("data", data);
 		RandAndPrintUtil.print("topK", topK(data, 10));

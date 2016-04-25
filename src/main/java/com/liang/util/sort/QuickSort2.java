@@ -17,7 +17,7 @@ public class QuickSort2 {
 	 * 
 	 * @param arr
 	 */
-	public static void sort(int arr[]) {
+	public static void sort(Integer arr[]) {
 		quickSort(arr, 0, arr.length - 1);// 初始化调用快排
 	}
 
@@ -28,7 +28,7 @@ public class QuickSort2 {
 	 * @param low
 	 * @param high
 	 */
-	private static void quickSort(int arr[], int low, int high) {
+	private static void quickSort(Integer arr[], int low, int high) {
 		int pivotkey;
 		if ((high - low) > Threshold) { // 优化方式三：如果序列长度大于阀值则使用快排，否则使用直接插入排序
 			while (low < high) {
@@ -49,7 +49,7 @@ public class QuickSort2 {
 	 * @param high
 	 * @return
 	 */
-	private static int partition(int arr[], int low, int high) {
+	private static int partition(Integer arr[], int low, int high) {
 		int pivotkey = calculPivot(arr, low, high); // 三数取中优选中轴值
 		int pivotvalue = arr[pivotkey]; // 设置辅助变量存储中轴值
 
@@ -76,7 +76,7 @@ public class QuickSort2 {
 	 * @param high
 	 * @return
 	 */
-	private static int calculPivot(int arr[], int low, int high) {
+	private static int calculPivot(Integer arr[], int low, int high) {
 //		int mid = low + (high - low) / 2;// 计算数组中间元素下标
 		int mid = (low + high) / 2; // 计算数组中间元素下标
 		// 使high的元素最大，low的元素居中，mid的元素最小
@@ -99,7 +99,7 @@ public class QuickSort2 {
 	 * @param a
 	 * @param b
 	 */
-	private static void swap(int arr[], int a, int b) {
+	private static void swap(Integer arr[], int a, int b) {
 		int temp = arr[a];
 		arr[a] = arr[b];
 		arr[b] = temp;
@@ -110,7 +110,7 @@ public class QuickSort2 {
 	 * 
 	 * @param arr
 	 */
-	private static void insertSort(int arr[]) {
+	private static void insertSort(Integer arr[]) {
 		int i, j, k;
 		for (i = 1; i < arr.length; i++) {
 			k = arr[i];

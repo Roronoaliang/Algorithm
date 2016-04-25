@@ -15,7 +15,7 @@ import com.liang.util.RandAndPrintUtil;
  */
 public class SearchRepeatNumber {
 
-	public static int solution1(int arr[]) {
+	public static int solution1(Integer arr[]) {
 		int sum = 0;
 		// 计算所有数的和
 		for (int i = 0; i < arr.length; i++) {
@@ -27,7 +27,7 @@ public class SearchRepeatNumber {
 
 	}
 
-	public static int solution2(int arr[]) {
+	public static int solution2(Integer arr[]) {
 		int result = 0;
 		for(int i = 0; i < arr.length; i++) {
 			result ^= arr[i];
@@ -39,7 +39,7 @@ public class SearchRepeatNumber {
 	}
 	
 	public static void main(String[] args) {
-		int arr[] = new int[1001];
+		Integer arr[] = new Integer[1001];
 		for (int i = 0; i < 500; i++) {
 			arr[i] = i + 1;
 		}

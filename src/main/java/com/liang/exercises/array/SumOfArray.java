@@ -7,7 +7,7 @@ package com.liang.exercises.array;
  */
 public class SumOfArray {
 
-	public int sumOfArray(int[] arr, int len) {
+	public int sumOfArray(Integer[] arr, int len) {
 		return len == 0 ? 0 : arr[len - 1] + sumOfArray(arr, len - 1);
 	}
 }

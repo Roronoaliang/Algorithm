@@ -13,7 +13,7 @@ public class ArrayTest {
 	@Test
 	public void sumOfArray() {
 		SumOfArray soa = new SumOfArray();
-		int arr[] = RandAndPrintUtil.randomNumber(10, 10);
+		Integer arr[] = RandAndPrintUtil.randomNumber(10, 10);
 		int sum = soa.sumOfArray(arr, arr.length);
 		RandAndPrintUtil.print("data", arr);
 		System.out.println("the sum is : " + sum);
@@ -22,7 +22,7 @@ public class ArrayTest {
 	@Test
 	public void maxAndMin() {
 		MaxAndMin mam = new MaxAndMin();
-		int arr[] = RandAndPrintUtil.randomNumber(10, 50);
+		Integer arr[] = RandAndPrintUtil.randomNumber(10, 50);
 		RandAndPrintUtil.print("data", arr);
 		mam.solution1(arr);
 		mam.solution2(arr);
@@ -30,7 +30,7 @@ public class ArrayTest {
 	
 	@Test
 	public void moreThanHalf() {
-		int arr[] = RandAndPrintUtil.randomNumber(7, 3);
+		Integer arr[] = RandAndPrintUtil.randomNumber(7, 3);
 		MoreThanHalf mth = new MoreThanHalf();
 		int result = mth.solution1(arr);
 		RandAndPrintUtil.print("data", arr);

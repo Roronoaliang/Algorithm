@@ -15,7 +15,7 @@ public class HillSort {
 	 * @param nums
 	 * @return
 	 */
-	public static void sort(int data[]) {
+	public static void sort(Integer data[]) {
 		int i, j, k;
 		int increment = data.length;
 		while (increment > 1) {

@@ -15,12 +15,12 @@ import com.liang.util.sort.SimpleSelectSort;
 
 public class SortTest {
 
-	private static int nums[][];
+	private static Integer nums[][];
 
 	@BeforeClass
 	public static void initData() {
-		nums = new int[10][50];
-		int a[] = RandAndPrintUtil.randomNumber(50, 1000);
+		nums = new Integer[10][50];
+		Integer a[] = RandAndPrintUtil.randomNumber(50, 1000);
 		for (int i = 0; i < 10; i++) {
 			nums[i] = a.clone();
 		}

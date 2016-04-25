@@ -6,7 +6,7 @@ package com.liang.util.sort;
  */
 public class QuickSort {
 
-	public static void sort(int nums[]) {
+	public static void sort(Integer nums[]) {
 		quickSort(nums, 0, nums.length - 1); // 初始调用快排
 	}
 
@@ -17,7 +17,7 @@ public class QuickSort {
 	 * @param low
 	 * @param high
 	 */
-	private static void quickSort(int nums[], int low, int high) {
+	private static void quickSort(Integer nums[], int low, int high) {
 		if (low < high) { // 注意这里是if，不是while
 			int pivotkey = partition(nums, low, high); // 将序列划分为两部分
 			quickSort(nums, low, pivotkey - 1);// 递归调用划分左序列
@@ -33,7 +33,7 @@ public class QuickSort {
 	 * @param high
 	 * @return 中轴数的位置
 	 */
-	private static int partition(int nums[], int low, int high) {
+	private static int partition(Integer nums[], int low, int high) {
 
 		int pivotkey = nums[low]; // 取第1个元素作为中轴值
 		while (low < high) {
@@ -58,7 +58,7 @@ public class QuickSort {
 	 * @param a
 	 * @param b
 	 */
-	private static void swap(int nums[], int a, int b) {
+	private static void swap(Integer nums[], int a, int b) {
 		int temp = nums[a];
 		nums[a] = nums[b];
 		nums[b] = temp;
